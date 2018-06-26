@@ -4,7 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const usersRouter = require('./routes/userController');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
@@ -33,8 +33,8 @@ db.on('error', (error) => {
   })
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/api/user', userController);
+// app.use('/users', usersRouter);
+app.use('/api/user', usersRouter);
 
 
 app.get('/', (req,res) => {
