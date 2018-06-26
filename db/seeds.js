@@ -11,6 +11,10 @@ const saved = async () => {
     await John.save()
     const Sarah = new User({name: 'Sarah', photo: 'enter photo source here'})
     await Sarah.save()
+    const Quagmire = new Creep({name: 'Quagmire', photo: 'enter photo source here'})
+    await Quagmire.save()
+    const RedGuy = new Creep({name: 'Red Guy', photo: 'enter photo source here'})
+    await RedGuy.save()
     db.close()
   }
   
