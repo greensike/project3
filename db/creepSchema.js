@@ -14,5 +14,6 @@ const creepSchema = new Schema({
   const Creep = mongoose.model('Creep', creepSchema)
 
 module.exports = {
+  creepSchema,
   Creep
 }

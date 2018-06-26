@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/userController');
+const creepRouter = require('./routes/creepController');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
@@ -34,6 +35,8 @@ db.on('error', (error) => {
 
 app.use('/', indexRouter);
 app.use('/api/user', usersRouter);
+app.use('/api/user/:userId/creep', creepRouter)
+
 
 
 app.get('/', (req,res) => {
