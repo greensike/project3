@@ -34,6 +34,8 @@ db.on('error', (error) => {
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/api/user', userController);
+
 
 app.get('/', (req,res) => {
     res.send("Hello World")
