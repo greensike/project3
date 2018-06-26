@@ -14,15 +14,6 @@ mongoose.Promise = global.Promise
 
 mongoose.connect(process.env.MONGODB_URI);  
 
-const db = mongoose.connection
-db.on('error', (error) => {
-    console.log(error)
-    console.log('you messed up')
-  })
-  db.once('open', () => {
-    console.log('Connected to MongoDB!')
-  })
-
 const app = express();
 app.use(logger('dev'));
 app.use(express.json());
@@ -32,11 +23,26 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+const db = mongoose.connection
+db.on('error', (error) => {
+    console.log(error)
+    console.log('you messed up')
+  })
+  db.once('open', () => {
+    console.log('Connected to MongoDB!')
+  })
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 app.get('/', (req,res) => {
     res.send("Hello World")
 })
+
+const PORT = process.env.PORT || 3001
+
+app.listen(PORT, () => {
+    console.log('App is up and running on port ' + PORT)
+  })
 
 module.exports = app;
