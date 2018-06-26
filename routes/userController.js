@@ -23,4 +23,28 @@ router.get('/:id', (req, res) => {
       })
 })
 
+router.post('/', async (req, res) => {
+  try {
+    const newUser = req.body
+    const savedUser= await User.create(newUser)
+    res.json(savedUser)
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err)
+  }
+})
+
+router.delete('/:id', async (req, res) => {
+  try {
+    const userId = req.params.id
+    await User.findByIdAndRemove(userId)
+    res.json({
+      msg: 'Successfully Deleted'
+    })
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err)
+  }
+})
+
 module.exports = router;
