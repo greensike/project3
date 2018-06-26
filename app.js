@@ -2,14 +2,16 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-require('dotenv').config();
 const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI);  
-const app = express();
+const bodyParser = require('body-parser');
 
+
+//require('dotenv').config();
+mongoose.connect(process.env.MONGODB_URI);  
+
+const app = express();
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
