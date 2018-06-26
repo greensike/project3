@@ -11,7 +11,7 @@ const saved = async () => {
     await John.save()
     const Sarah = new User({name: 'Sarah', photo: 'enter photo source here'})
     await Sarah.save()
-    const Quagmire = new Creep({name: 'Quagmire', photo: 'enter photo source here'})
+    const Quagmire = new Creep({name: 'Quagmire', photo: 'enter photo source here',address: '123 Rhode Island',age: 34,name: 'weird ole giggidy giggidy',})
     await Quagmire.save()
     const RedGuy = new Creep({name: 'Red Guy', photo: 'enter photo source here'})
     await RedGuy.save()
