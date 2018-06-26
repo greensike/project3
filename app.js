@@ -33,7 +33,6 @@ db.on('error', (error) => {
   })
 
 app.use('/', indexRouter);
-// app.use('/users', usersRouter);
 app.use('/api/user', usersRouter);
 
 
