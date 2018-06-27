@@ -5,7 +5,7 @@ const {creepSchema} = require('./creepSchema')
 const userSchema = new Schema({
     name: String,
     photo: String,
-    creeps: [creepSchema]
+    creep: [creepSchema]
   })
 
 const User = mongoose.model('User', userSchema)

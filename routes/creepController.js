@@ -10,7 +10,7 @@ const { Creep } = require('../db/creepSchema.js')
 router.get('/', (req, res, next) => {
     User.findById(req.params.userId)
         .then((user) => {
-            const creep = user.creeps
+            const creep = user.creep
             res.json('creep', {
                 creep
             })
@@ -20,7 +20,7 @@ router.get('/', (req, res, next) => {
 router.get('/:id', (req, res) => {
     User.findById(req.params.userId)
         .then((user) => {
-            const creep = user.creeps.id(req.params.id)
+            const creep = user.creep.id(req.params.id)
             res.json({
                 creep
             })
@@ -28,14 +28,16 @@ router.get('/:id', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    const creep = new Comment(req.body)
+    const creep = new Creep(req.body)
     User.findById(req.params.userId)
         .then((user) => {
-            user.creeps.push(creep)
-            return creeps.save()
+            user.creep.push(creep)
+            return creep.save()
         })
         .then(() => {
-            res.redirect(`/user/${req.params.userId}/creep`)
+            res.send({
+                creep
+            })
         })
 })
 
@@ -48,14 +50,15 @@ router.patch('/:id', (req, res)=>{
         creep.description = req.body.description
         creep.address = req.body.address
         creep.age = req.body.age
-
+        creep.stars = req.body.stars
 
         return user.save()
     })
     .then((user)=>{
         res.send({
-            store: user.stores.id(req.params.id)
-        })
+            user: user.creep
+        }
+        )
     })
 })
 
