@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import UserCard from './UserCard'
 import axios from 'axios'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const AllUsersBox = styled.div`
 display: flex;
@@ -29,7 +30,7 @@ class AllUsers extends Component {
         <div>
           <h1>all users</h1>
           <AllUsersBox>{listOfUsers}</AllUsersBox>
-          
+          <Link className="link" to="/user/new">Add New User</Link>
         </div>
       
     )
