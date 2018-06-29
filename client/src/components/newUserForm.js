@@ -38,7 +38,7 @@ class newUserForm extends Component {
         }
         return (
         <div>
-            <p> uuu </p>
+            <p> New User </p>
             <form onSubmit={this.handleSubmit}>
                     <label htmlFor="name">Name: </label>
                     <input onChange={this.handleChange} type="text" name="name" value={this.state.name} />
