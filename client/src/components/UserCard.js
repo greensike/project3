@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
 
-
 const UserBox= styled.div`
 display: flex;
 flex-direction: column;
