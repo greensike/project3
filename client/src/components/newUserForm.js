@@ -21,15 +21,20 @@ class newUserForm extends Component {
         const payload = {
           name: this.state.name,
         }
-        await axios.post('/api/creatures', payload)
-        await this.props.getAllCreatures()
+        await axios.post('/api/user', payload)
+        await this.props.getUsers()
       }
 
   render () {
     return (
         <div>
-            <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPAqGb0QIt3yo3iMmJS3OP62R3kyI9y4-Ow7RBR_t2rNLDyjMK" width="100" alt="random person"/>
-            {this.props.user.name}
+            <form onSubmit={this.handleSubmit}>
+        <div>
+          <label htmlFor="name">Name: </label>
+          <input onChange={this.handleChange} type="text" name="name" value={this.state.name}/>
+        </div>
+        <button>Submit</button>
+      </form>
         </div>
     )
   }
