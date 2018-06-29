@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
-class CreepPage extends Component {
+class AllCreepPage extends Component {
+    state = {
+        user: [],
+    }
+
+
+
   render() {
     return (
       <Router>
@@ -15,4 +21,4 @@ class CreepPage extends Component {
   }
 }
 
-export default CreepPage
+export default AllCreepPage
