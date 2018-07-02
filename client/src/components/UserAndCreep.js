@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import axios from 'axios'
 import UserCard from './UserCard'
 import { Link } from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
+
 
 
 const Image = styled.img`
@@ -15,8 +17,9 @@ flex-wrap:wrap;
 
 class UserAndCreep extends Component {
     state = {
+        redirect: false,
         user: {
-            creep: []
+            creep: [],
         }
     }
 
@@ -43,7 +46,9 @@ deleteUser = () => {
         this.getUsers()
     }
     render() {
-
+        if(this.state.redirect){
+            return <Redirect to={`/`}/>
+        }
         return (
             <div>
                 <div>

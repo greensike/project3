@@ -20,7 +20,6 @@ class App extends Component {
             <Route exact path="/" component={AllUsers} />
             <Route exact path="/user/new" component= {newUserForm} />
             <Route path="/user/:id" render={this.userAndCreepWrap} />
-
           </Switch>
         </div>
       </Router>

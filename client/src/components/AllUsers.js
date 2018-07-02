@@ -24,7 +24,7 @@ class AllUsers extends Component {
     }
   render () {
       const listOfUsers = this.state.users.map((user,index) => {
-          return (<UserCard key={index} user={user}/>)
+          return (<UserCard key={index} user={user} id={user._id}/>)
       })
     return (
         <div>
