@@ -9,7 +9,9 @@ import NewCreep from './NewCreep';
 
 
 const Image = styled.img`
-margin: 20px;
+    margin: 20px;
+    height:100px;
+    width:auto;
 `
 const AllUsersBox = styled.div`
 display: flex;
@@ -53,7 +55,7 @@ class UserAndCreep extends Component {
         return (
             <div>
                 <div>
-                    <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPAqGb0QIt3yo3iMmJS3OP62R3kyI9y4-Ow7RBR_t2rNLDyjMK" width="100" alt="random person" />
+                    <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPAqGb0QIt3yo3iMmJS3OP62R3kyI9y4-Ow7RBR_t2rNLDyjMK" alt="random person" />
                     {this.state.user.name}
                     <button onClick={this.deleteUser}>Delete User</button>
                     <Link className="link" to={`/user/${this.props.match.params.id}/updateUserForm`}>Change the User's name</Link>
@@ -62,7 +64,7 @@ class UserAndCreep extends Component {
                 {this.state.user.creep.map((creep, i) => {
                     return (
                         <div key={i}>
-                            <img src={creep.photo} alt="" />
+                            <Image src={creep.photo} alt="" />
                             <p>{creep.name}</p>
                         </div>
                     )

@@ -38,7 +38,7 @@ The aim of this assignment was to make a full stack project that would let the u
 <details>
 <summary>Wireframe and ERD</summary>
 <br>
-![pic](project2Wireframe.jpg)
+![pic](proj2WireframeAndERD.jpg)
 </details>
 
 
