@@ -14,9 +14,19 @@ const Image = styled.img`
     width:auto;
     margin-left: 40px;
 `
+const Image2 = styled.img`
+    margin: 20px;
+    height:200px;
+    width:auto;
+    margin-left: 40px;
+`
 const AllUsersBox = styled.div`
 display: flex;
 flex-wrap:wrap;
+`
+
+const div = styled.div`
+margin-left: 20px;
 `
 
 
@@ -71,12 +81,20 @@ class UserAndCreep extends Component {
                 {this.state.user.creep.map((creep, i) => {
                     return (
                         <div key={i}>
+                            <div>
                             <h3> Creep </h3>
-                            <Image src={creep.photo} alt="" />
+                            <Image2 src={creep.photo} alt="" />
                             <p>{creep.name}</p>
+                            <br/>
+                            <p>{creep.address}</p>
+                            <br/>
+                            <p>{creep.description}</p>
+                            <br/>
+                            <p>{creep.crime}</p>
                         </div>
-                    )
-                })}
+                        </div>
+            )
+        })}
             </div>
         )
     }
