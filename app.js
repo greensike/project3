@@ -2,7 +2,6 @@ require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
-const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/userController');
 const creepRouter = require('./routes/creepController');
 const mongoose = require('mongoose');
@@ -31,7 +30,6 @@ db.on('error', (error) => {
     console.log('Connected to MongoDB!')
   })
 
-app.use('/', indexRouter);
 app.use('/api/user', usersRouter);
 app.use('/api/user/:userId/creep', creepRouter)
 app.use(express.static(`${__dirname}/client/build`))
