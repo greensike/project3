@@ -28,9 +28,9 @@ class AllUsers extends Component {
       })
     return (
         <div>
-          <h1>all users</h1>
+          <h1>All Informers</h1>
           <AllUsersBox>{listOfUsers}</AllUsersBox>
-          <Link className="link" to="/user/new">Add New User</Link>
+          <Link className="link" to="/user/new">Add New Informer</Link>
         </div>
       
     )

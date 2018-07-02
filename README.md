@@ -1,4 +1,4 @@
-# Project3 : Cartoon cREEP
+# Project3 : Cartoon Creep
 
 ## Project Description
 
@@ -12,7 +12,7 @@ The aim of this assignment was to make a full stack project that would let the u
   * Languages -  HTML5, CSS3, Javascript
   * Wireframe - Paper
   * Project Planning & User Stories - [Trello](https://trello.com/b/bTDk8rlG/project-3)
-  * Deployment - heroku - [heroku](https://rocky-refuge-50835.herokuapp.com/users/5b2005c86d459100140a2d03/team)
+  * Deployment - heroku - [heroku](https://secure-oasis-47069.herokuapp.com/user/5b3a5db19277ae0014c3708d)
   * Visual Studio Code
   * Mongo
   * Mongoose
@@ -38,7 +38,7 @@ The aim of this assignment was to make a full stack project that would let the u
 <details>
 <summary>Wireframe and ERD</summary>
 <br>
-![pic](proj2WireframeAndERD.jpg)
+![pic]("proj2WireframeAndERD.jpg")
 </details>
 
 

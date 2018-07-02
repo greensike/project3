@@ -12,11 +12,13 @@ const Image = styled.img`
     margin: 20px;
     height:100px;
     width:auto;
+    margin-left: 40px;
 `
 const AllUsersBox = styled.div`
 display: flex;
 flex-wrap:wrap;
 `
+
 
 class UserAndCreep extends Component {
     state = {
@@ -55,15 +57,21 @@ class UserAndCreep extends Component {
         return (
             <div>
                 <div>
+                    <h1> Informers </h1>
                     <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPAqGb0QIt3yo3iMmJS3OP62R3kyI9y4-Ow7RBR_t2rNLDyjMK" alt="random person" />
-                    {this.state.user.name}
-                    <button onClick={this.deleteUser}>Delete User</button>
+                    <br/>
+                    <h3>{this.state.user.name}</h3>
+                    <br/>
                     <Link className="link" to={`/user/${this.props.match.params.id}/updateUserForm`}>Change the User's name</Link>
+                    <br/>
                     <Link className="link" to={`/user/${this.props.match.params.id}/newCreep`}>Add New Creep</Link>
+                    <br/>
+                    <button onClick={this.deleteUser}>Delete User</button>
                 </div>
                 {this.state.user.creep.map((creep, i) => {
                     return (
                         <div key={i}>
+                            <h3> Creep </h3>
                             <Image src={creep.photo} alt="" />
                             <p>{creep.name}</p>
                         </div>
