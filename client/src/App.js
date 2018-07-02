@@ -4,6 +4,8 @@ import AllUsers from './components/AllUsers'
 // import UserCard from './components/UserCard';
 import UserAndCreep from './components/UserAndCreep';
 import newUserForm from './components/newUserForm';
+import NewCreep from './components/NewCreep';
+import updateUserForm from './components/UpdateUserForm';
 // import Creep from './components/Creep'
 
 class App extends Component {
@@ -19,7 +21,10 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={AllUsers} />
             <Route exact path="/user/new" component= {newUserForm} />
-            <Route path="/user/:id" render={this.userAndCreepWrap} />
+            <Route exact path="/user/:id/newCreep" component= {NewCreep} />
+            <Route exact path="/user/:id/updateUserForm" component= {updateUserForm} />
+            <Route exact path="/user/:id" render={this.userAndCreepWrap} />
+
           </Switch>
         </div>
       </Router>

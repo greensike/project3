@@ -7,14 +7,9 @@ import { Redirect } from 'react-router-dom'
 
 
 
-class NewCreep extends Component {
+class updateUserForm extends Component {
     state = {
-        user: [],
         name: '',
-        photo: '',
-        address: '',
-        description: '',
-        crime: '',
         redirect: false
     }
 
@@ -29,30 +24,23 @@ class NewCreep extends Component {
         event.preventDefault()
         const userId = this.props.match.params.id
       
-        axios.post(`/api/user/${userId}/creep`, this.state).then((res) => {
+        axios.put(`/api/user/${userId}`, this.state).then((res) => {
             console.log(res)
             this.setState({ redirect: true })
         })
     }
 
     render() {
+        console.log("is this happening")
         if (this.state.redirect) {
             return <Redirect to={`/user/${this.props.match.params.id}`} />
         }
         return (
             <div>
-                <p> New Creep </p>
+                <p> Edit user </p>
                 <form onSubmit={this.handleSubmit}>
                     <label htmlFor="name">Name: </label>
                     <input onChange={this.handleChange} type="text" name="name" value={this.state.name} />
-                    <label htmlFor="photo">Photo: </label>
-                    <input onChange={this.handleChange} type="text" name="photo" value={this.state.photo} />
-                    <label htmlFor="address">Address: </label>
-                    <input onChange={this.handleChange} type="text" name="address" value={this.state.address} />
-                    <label htmlFor="description">Description: </label>
-                    <input onChange={this.handleChange} type="text" name="description" value={this.state.description} />
-                    <label htmlFor="crime">Crime: </label>
-                    <input onChange={this.handleChange} type="text" name="crime" value={this.state.crime} />
                     <button>Submit</button>
                 </form>
             </div>
@@ -60,4 +48,4 @@ class NewCreep extends Component {
     }
 }
 
-export default NewCreep
+export default updateUserForm

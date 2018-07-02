@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import axios from 'axios'
 import UserCard from './UserCard'
 import { Link } from 'react-router-dom'
-import {Redirect} from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
+import NewCreep from './NewCreep';
 
 
 
@@ -24,14 +25,14 @@ class UserAndCreep extends Component {
     }
 
 
-deleteUser = () => {
-    const userId = this.props.match.params.id
-    //make a delete request to our copy of the api using the params to identify specific idea
-    axios.delete(`/api/user/${userId}`).then((res) => {
-    this.getUsers(userId)
-    
-    })
-    
+    deleteUser = () => {
+        const userId = this.props.match.params.id
+        axios.delete(`/api/user/${userId}`).then((res) => {
+            // this.getUsers(userId)
+            this.setState({ redirect: true })
+
+        })
+
     }
 
     getUsers = () => {
@@ -46,8 +47,8 @@ deleteUser = () => {
         this.getUsers()
     }
     render() {
-        if(this.state.redirect){
-            return <Redirect to={`/`}/>
+        if (this.state.redirect) {
+            return <Redirect to={'/'} />
         }
         return (
             <div>
@@ -55,13 +56,14 @@ deleteUser = () => {
                     <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPAqGb0QIt3yo3iMmJS3OP62R3kyI9y4-Ow7RBR_t2rNLDyjMK" width="100" alt="random person" />
                     {this.state.user.name}
                     <button onClick={this.deleteUser}>Delete User</button>
+                    <Link className="link" to={`/user/${this.props.match.params.id}/updateUserForm`}>Change the User's name</Link>
+                    <Link className="link" to={`/user/${this.props.match.params.id}/newCreep`}>Add New Creep</Link>
                 </div>
                 {this.state.user.creep.map((creep, i) => {
                     return (
                         <div key={i}>
-                            {/* <img src="creep.photo" alt=""/> */}
+                            <img src={creep.photo} alt="" />
                             <p>{creep.name}</p>
-                            <p>{creep.age}</p>
                         </div>
                     )
                 })}

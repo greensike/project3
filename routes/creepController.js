@@ -32,7 +32,7 @@ router.post('/', (req, res) => {
     User.findById(req.params.userId)
         .then((user) => {
             user.creep.push(creep)
-            return creep.save()
+            return user.save()
         })
         .then(() => {
             res.send({
